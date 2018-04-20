@@ -1,0 +1,14 @@
+<article class="panel panel-default">
+  <div class="panel-body">
+    <p>{{msg.content}}</p>
+  </div>
+  <div class="panel-footer">
+    <div class="author">
+      By: {{msg.user}}
+    </div>
+    <div class="config" *ngIf="belongsToUser()">
+      <a class="btn btn-success btn-xs" (click)="onLoadEdit()">Edit</a>
+      <a class="btn btn-danger btn-xs" (click)="onDelete()">Delete</a>
+    </div>
+  </div>
+</article>

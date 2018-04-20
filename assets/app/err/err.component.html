@@ -1,0 +1,14 @@
+<div class="backdrop" [ngStyle]="{'display': display}"></div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="onErrHandled()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{err?.status}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{err?.message}}</p>
+      </div>
+    </div>
+  </div>
+</div>

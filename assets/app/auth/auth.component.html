@@ -1,0 +1,25 @@
+<header class="row spacing">
+  <nav class="col-md-8 col-md-offset-2">
+    <ul class="nav nav-tabs">
+      <li routerLinkActive="active">
+        <a [routerLink]="['register']">Register</a>
+      </li>
+
+      <div *ngIf="isLoggedIn(); then loggedIn; else notLoggedIn"></div>
+      <ng-template #loggedIn>
+        <li routerLinkActive="active">
+          <a [routerLink]="['logout']">Logout</a>
+        </li>
+      </ng-template>
+
+      <ng-template #notLoggedIn>
+        <li routerLinkActive="active">
+          <a [routerLink]="['login']">Login</a>
+        </li>
+      </ng-template>
+    </ul>
+  </nav>
+</header>
+<div class="row spacing">
+  <router-outlet></router-outlet>
+</div>
