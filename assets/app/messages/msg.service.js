@@ -20,7 +20,7 @@ var MsgService = /** @class */ (function () {
             token = '?token=' + token;
         else
             token = '';
-        return this.http.post('https://ms08-02.herokuapp.com/api/msgs' + token, body, { headers: headers })
+        return this.http.post('http://localhost:3000/api/msgs' + token, body, { headers: headers })
             .map(function (resp) {
             var result = resp.json().obj;
             var newMsg = new Message(result.content, result.user.fname, result._id, result.user._id);
@@ -34,7 +34,7 @@ var MsgService = /** @class */ (function () {
     };
     MsgService.prototype.getMsg = function () {
         var _this = this;
-        return this.http.get('https://ms08-02.herokuapp.com/api/msgs')
+        return this.http.get('http://localhost:3000/api/msgs')
             .map(function (resp) {
             var msgs = resp.json().obj;
             var transformedMsgs = [];
@@ -63,7 +63,7 @@ var MsgService = /** @class */ (function () {
         else
             token = '';
         var headers = new Headers({ 'content-type': 'application/json' });
-        return this.http.patch('https://ms08-02.herokuapp.com/api/msgs/' + msg.messageId + token, body, { headers: headers })
+        return this.http.patch('http://localhost:3000/api/msgs/' + msg.messageId + token, body, { headers: headers })
             .catch(function (err) {
             _this.errService.handleErr(err.json());
             return Observable.throw(err.json());
@@ -77,7 +77,7 @@ var MsgService = /** @class */ (function () {
         else
             token = '';
         this.messages.splice(this.messages.indexOf(msg), 1);
-        return this.http.delete('https://ms08-02.herokuapp.com/api/msgs/' + msg.messageId + token)
+        return this.http.delete('http://localhost:3000/api/msgs/' + msg.messageId + token)
             .catch(function (err) {
             _this.errService.handleErr(err.json());
             return Observable.throw(err.json());

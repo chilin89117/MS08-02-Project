@@ -4,8 +4,7 @@ import {MsgService} from './msg.service';
 
 @Component({
   selector: 'my-msg',
-  templateUrl: './msg.component.html',
-  styleUrls: ['./msg.component.css']
+  templateUrl: './msg.component.html'
 })
 
 export class MsgComponent {

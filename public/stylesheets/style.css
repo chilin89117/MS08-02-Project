@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+/* a {
   color: #00B7FF;
   cursor: pointer;
 }
@@ -16,11 +16,7 @@ a:active {
 
 a.danger {
   color: red;
-}
-
-.spacing {
-  margin-bottom: 20px;
-}
+} */
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;

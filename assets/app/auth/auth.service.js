@@ -12,7 +12,7 @@ var AuthService = /** @class */ (function () {
         var _this = this;
         var body = JSON.stringify(user);
         var headers = new Headers({ 'content-type': 'application/json' });
-        return this.http.post('https://ms08-02.herokuapp.com/api/users', body, { headers: headers })
+        return this.http.post('http://localhost:3000/api/users', body, { headers: headers })
             .map(function (resp) { return resp.json(); })
             .catch(function (err) {
             _this.errService.handleErr(err.json());
@@ -23,7 +23,7 @@ var AuthService = /** @class */ (function () {
         var _this = this;
         var body = JSON.stringify(user);
         var headers = new Headers({ 'content-type': 'application/json' });
-        return this.http.post('https://ms08-02.herokuapp.com/api/users/login', body, { headers: headers })
+        return this.http.post('http://localhost:3000/api/users/login', body, { headers: headers })
             .map(function (resp) { return resp.json(); })
             .catch(function (err) {
             _this.errService.handleErr(err.json());

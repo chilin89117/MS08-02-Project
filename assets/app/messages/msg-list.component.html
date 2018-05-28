@@ -1,4 +1,5 @@
-<!-- Component to show individual message (msg.component.ts) -->
+<!-- Component to show list of msg.component.ts -->
 <!-- 'messages' is an array defined in msg-list.component.ts -->
-<!-- 'editClicked' is custom event from msg.component.ts -->
-<my-msg *ngFor="let msg of messages" [msg]="msg"></my-msg>
+<div class="row">
+  <my-msg *ngFor="let msg of messages" [msg]="msg" class="col-md-6 col-lg-4 mb-4"></my-msg>
+</div>

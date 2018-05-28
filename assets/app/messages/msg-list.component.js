@@ -12,7 +12,7 @@ var MsgListComponent = /** @class */ (function () {
     MsgListComponent.decorators = [
         { type: Component, args: [{
                     selector: 'my-msg-list',
-                    // Used in app.component.html
+                    // Used in msgs.component.html
                     templateUrl: './msg-list.component.html',
                 },] },
     ];

@@ -1,25 +1,21 @@
-<header class="row spacing">
-  <nav class="col-md-8 col-md-offset-2">
-    <ul class="nav nav-tabs">
-      <li routerLinkActive="active">
-        <a [routerLink]="['register']">Register</a>
-      </li>
+<ul class="nav nav-tabs mb-5">
+  <li class="nav-item">
+    <a [routerLink]="['register']" routerLinkActive="active" class="nav-link">Register</a>
+  </li>
 
-      <div *ngIf="isLoggedIn(); then loggedIn; else notLoggedIn"></div>
-      <ng-template #loggedIn>
-        <li routerLinkActive="active">
-          <a [routerLink]="['logout']">Logout</a>
-        </li>
-      </ng-template>
+  <div *ngIf="isLoggedIn(); then loggedIn; else notLoggedIn"></div>
+  <ng-template #loggedIn>
+    <li class="nav-item">
+      <a [routerLink]="['logout']" routerLinkActive="active" class="nav-link">Logout</a>
+    </li>
+  </ng-template>
 
-      <ng-template #notLoggedIn>
-        <li routerLinkActive="active">
-          <a [routerLink]="['login']">Login</a>
-        </li>
-      </ng-template>
-    </ul>
-  </nav>
-</header>
-<div class="row spacing">
+  <ng-template #notLoggedIn>
+    <li class="nav-item">
+      <a [routerLink]="['login']" routerLinkActive="active" class="nav-link">Login</a>
+    </li>
+  </ng-template>
+</ul>
+<div>
   <router-outlet></router-outlet>
 </div>

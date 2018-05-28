@@ -4,22 +4,21 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
  */ 
-import * as i0 from "./msg.component.css.shim.ngstyle";
-import * as i1 from "@angular/core";
-import * as i2 from "@angular/common";
-import * as i3 from "./msg.component";
-import * as i4 from "./msg.service";
-var styles_MsgComponent = [i0.styles];
-var RenderType_MsgComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MsgComponent, data: {} });
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/common";
+import * as i2 from "./msg.component";
+import * as i3 from "./msg.service";
+var styles_MsgComponent = [];
+var RenderType_MsgComponent = i0.ɵcrt({ encapsulation: 2, styles: styles_MsgComponent, data: {} });
 export { RenderType_MsgComponent as RenderType_MsgComponent };
-function View_MsgComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [["class", "config"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(2, 0, null, null, 1, "a", [["class", "btn btn-success btn-xs"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_MsgComponent_1(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 7, "div", [["class", "text-white"]], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n      "])), (_l()(), i0.ɵeld(2, 0, null, null, 1, "a", [["class", "btn btn-success btn-sm"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.onLoadEdit() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Edit"])), (_l()(), i1.ɵted(-1, null, ["\n      "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "a", [["class", "btn btn-danger btn-xs"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+    } return ad; }, null, null)), (_l()(), i0.ɵted(-1, null, ["Edit"])), (_l()(), i0.ɵted(-1, null, ["\n      "])), (_l()(), i0.ɵeld(5, 0, null, null, 1, "a", [["class", "btn btn-danger btn-sm"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.onDelete() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Delete"])), (_l()(), i1.ɵted(-1, null, ["\n    "]))], null, null); }
-export function View_MsgComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 16, "article", [["class", "panel panel-default"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(2, 0, null, null, 4, "div", [["class", "panel-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(4, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(5, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(8, 0, null, null, 7, "div", [["class", "panel-footer"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(10, 0, null, null, 1, "div", [["class", "author"]], null, null, null, null, null)), (_l()(), i1.ɵted(11, null, ["\n      By: ", "\n    "])), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MsgComponent_1)), i1.ɵdid(14, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵted(-1, null, ["\n"]))], function (_ck, _v) { var _co = _v.component; var currVal_2 = _co.belongsToUser(); _ck(_v, 14, 0, currVal_2); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.msg.content; _ck(_v, 5, 0, currVal_0); var currVal_1 = _co.msg.user; _ck(_v, 11, 0, currVal_1); }); }
-export function View_MsgComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-msg", [], null, null, null, View_MsgComponent_0, RenderType_MsgComponent)), i1.ɵdid(1, 49152, null, 0, i3.MsgComponent, [i4.MsgService], null, null)], null, null); }
-var MsgComponentNgFactory = i1.ɵccf("my-msg", i3.MsgComponent, View_MsgComponent_Host_0, { msg: "msg" }, {}, []);
+    } return ad; }, null, null)), (_l()(), i0.ɵted(-1, null, ["Delete"])), (_l()(), i0.ɵted(-1, null, ["\n    "]))], null, null); }
+export function View_MsgComponent_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 16, "div", [["class", "card"]], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n  "])), (_l()(), i0.ɵeld(2, 0, null, null, 7, "div", [["class", "card-header d-flex justify-content-between"]], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵeld(4, 0, null, null, 1, "h5", [["class", "font-italic pt-1"]], null, null, null, null, null)), (_l()(), i0.ɵted(5, null, ["By: ", ""])), (_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_MsgComponent_1)), i0.ɵdid(8, 16384, null, 0, i1.NgIf, [i0.ViewContainerRef, i0.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i0.ɵted(-1, null, ["\n  "])), (_l()(), i0.ɵted(-1, null, ["\n  "])), (_l()(), i0.ɵeld(11, 0, null, null, 4, "div", [["class", "card-body"]], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n    "])), (_l()(), i0.ɵeld(13, 0, null, null, 1, "p", [["class", "card-text"]], null, null, null, null, null)), (_l()(), i0.ɵted(14, null, ["", ""])), (_l()(), i0.ɵted(-1, null, ["\n  "])), (_l()(), i0.ɵted(-1, null, ["\n"])), (_l()(), i0.ɵted(-1, null, ["\n"]))], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.belongsToUser(); _ck(_v, 8, 0, currVal_1); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.msg.user; _ck(_v, 5, 0, currVal_0); var currVal_2 = _co.msg.content; _ck(_v, 14, 0, currVal_2); }); }
+export function View_MsgComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "my-msg", [], null, null, null, View_MsgComponent_0, RenderType_MsgComponent)), i0.ɵdid(1, 49152, null, 0, i2.MsgComponent, [i3.MsgService], null, null)], null, null); }
+var MsgComponentNgFactory = i0.ɵccf("my-msg", i2.MsgComponent, View_MsgComponent_Host_0, { msg: "msg" }, {}, []);
 export { MsgComponentNgFactory as MsgComponentNgFactory };

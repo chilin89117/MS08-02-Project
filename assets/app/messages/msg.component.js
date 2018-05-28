@@ -18,8 +18,7 @@ var MsgComponent = /** @class */ (function () {
     MsgComponent.decorators = [
         { type: Component, args: [{
                     selector: 'my-msg',
-                    templateUrl: './msg.component.html',
-                    styleUrls: ['./msg.component.css']
+                    templateUrl: './msg.component.html'
                 },] },
     ];
     /** @nocollapse */

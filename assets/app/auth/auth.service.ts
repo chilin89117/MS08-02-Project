@@ -13,7 +13,7 @@ export class AuthService {
   register(user: User) {
     const body = JSON.stringify(user);
     const headers = new Headers({'content-type': 'application/json'});
-    return this.http.post('https://ms08-02.herokuapp.com/api/users', body, {headers})
+    return this.http.post('http://localhost:3000/api/users', body, {headers})
                     .map((resp: Response) => resp.json())
                     .catch((err: Response) => {
                       this.errService.handleErr(err.json());
@@ -24,7 +24,7 @@ export class AuthService {
   login(user: User) {
     const body = JSON.stringify(user);
     const headers = new Headers({'content-type': 'application/json'});
-    return this.http.post('https://ms08-02.herokuapp.com/api/users/login', body, {headers})
+    return this.http.post('http://localhost:3000/api/users/login', body, {headers})
                .map((resp: Response) => resp.json())
                .catch((err: Response) => {
                 this.errService.handleErr(err.json());

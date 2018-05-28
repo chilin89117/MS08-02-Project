@@ -22,7 +22,7 @@ export class MsgService {
     if(token) token = '?token=' + token;
     else token = '';
 
-    return this.http.post('https://ms08-02.herokuapp.com/api/msgs' + token, body, {headers})
+    return this.http.post('http://localhost:3000/api/msgs' + token, body, {headers})
                .map((resp: Response) => {
                  const result = resp.json().obj;
                  const newMsg = new Message(result.content, result.user.fname, result._id, result.user._id);
@@ -36,7 +36,7 @@ export class MsgService {
   }
 
   getMsg() {
-    return this.http.get('https://ms08-02.herokuapp.com/api/msgs')
+    return this.http.get('http://localhost:3000/api/msgs')
                .map((resp: Response) => {
                  const msgs = resp.json().obj;
                  let transformedMsgs: Message[] = [];
@@ -65,7 +65,7 @@ export class MsgService {
     else token = '';
 
     const headers = new Headers({'content-type': 'application/json'});
-    return this.http.patch('https://ms08-02.herokuapp.com/api/msgs/' + msg.messageId + token, body, {headers})
+    return this.http.patch('http://localhost:3000/api/msgs/' + msg.messageId + token, body, {headers})
                .catch((err: Response) => {
                  this.errService.handleErr(err.json());
                  return Observable.throw(err.json());
@@ -78,7 +78,7 @@ export class MsgService {
     else token = '';
 
     this.messages.splice(this.messages.indexOf(msg), 1);
-    return this.http.delete('https://ms08-02.herokuapp.com/api/msgs/' + msg.messageId + token)
+    return this.http.delete('http://localhost:3000/api/msgs/' + msg.messageId + token)
                .catch((err: Response) => {
                  this.errService.handleErr(err.json());
                  return Observable.throw(err.json());

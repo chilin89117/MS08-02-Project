@@ -1,14 +1,12 @@
-<article class="panel panel-default">
-  <div class="panel-body">
-    <p>{{msg.content}}</p>
-  </div>
-  <div class="panel-footer">
-    <div class="author">
-      By: {{msg.user}}
-    </div>
-    <div class="config" *ngIf="belongsToUser()">
-      <a class="btn btn-success btn-xs" (click)="onLoadEdit()">Edit</a>
-      <a class="btn btn-danger btn-xs" (click)="onDelete()">Delete</a>
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h5 class="font-italic pt-1">By: {{msg.user}}</h5>
+    <div class="text-white" *ngIf="belongsToUser()">
+      <a class="btn btn-success btn-sm" (click)="onLoadEdit()">Edit</a>
+      <a class="btn btn-danger btn-sm" (click)="onDelete()">Delete</a>
     </div>
   </div>
-</article>
+  <div class="card-body">
+    <p class="card-text">{{msg.content}}</p>
+  </div>
+</div>
