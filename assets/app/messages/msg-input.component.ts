@@ -13,25 +13,26 @@ export class MsgInputComponent implements OnInit {
   constructor(private MsgService:MsgService) {}
 
   ngOnInit() {
-    this.MsgService.MsgEvtEmitter.subscribe((msg:Message) => this.msg = msg);
+    this.MsgService.MsgEvtEmitter
+                    .subscribe((msg:Message) => this.msg = msg);
   }
   
   onSubmit(form:NgForm) {
     if(this.msg) {
       this.msg.content = form.value.content;
       this.MsgService.updateMsg(this.msg)
-          .subscribe(
-            (result) => console.log(result),
-            (error) => console.log(error)
-          );
+                      .subscribe(
+                        result => console.log(result),
+                        error => console.log(error)
+                      );
       this.msg = null;
     } else {
       const newMsg = new Message(form.value.content);
       this.MsgService.addMsg(newMsg)
-          .subscribe(
-            (data) => console.log(data),
-            (error) => console.log(error)
-          );
+                      .subscribe(
+                        data => console.log(data),
+                        error => console.log(error)
+                      );
     }
     this.onClear(form);
   }

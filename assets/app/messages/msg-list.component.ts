@@ -3,7 +3,7 @@ import {Message} from './msg.model';
 import {MsgService} from './msg.service';
 
 @Component({
-  selector: 'my-msg-list',  // Used in msgs.component.html
+  selector:'my-msg-list',  // Used in msgs.component.html
   templateUrl: './msg-list.component.html',
 })
 
@@ -14,6 +14,8 @@ export class MsgListComponent implements OnInit {
 
   ngOnInit() {
     this.MsgService.getMsg()
-        .subscribe((msgs: Message[]) => this.messages = msgs);
+                    .subscribe(
+                      (msgs: Message[]) => this.messages = msgs
+                    );
   }
 }

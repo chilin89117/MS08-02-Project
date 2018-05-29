@@ -21,7 +21,9 @@ export class MsgComponent {
   onDelete() {
     if(confirm('Are you sure?')) {
       this.MsgService.deleteMsg(this.msg)
-          .subscribe(result => console.log(result));
+                      .subscribe(
+                        result => console.log(result)
+                      );
     }
   }
 

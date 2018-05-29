@@ -30,13 +30,13 @@ export class RegisterComponent implements OnInit {
       this.myForm.value.lname
     );
     this.authService.register(user)
-        .subscribe(
-          data => {
-            console.log(data.status);
-            console.log(data.obj);
-          },
-          err => console.log(err)
-        );
+                    .subscribe(
+                      data => {
+                        console.log(data.status);
+                        console.log(data.obj);
+                      },
+                      err => console.log(err)
+                    );
     this.myForm.reset();
   }
 }

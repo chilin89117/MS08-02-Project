@@ -1,46 +1,54 @@
-var path = require('path');
-
-var webpack = require('webpack');
-var webpackMerge = require('webpack-merge');
-var commonConfig = require('./webpack.config.common.js');
-var ngw = require('@ngtools/webpack');
+const path = require('path');
+const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
+const commonConfig = require('./webpack.config.common.js');
+const ngw = require('@ngtools/webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = webpackMerge.smart(commonConfig, {
-    entry: {
-        'app': './assets/app/main.aot.ts'
-    },
-
-    output: {
-        path: path.resolve(__dirname + '/public/js/app'),
-        filename: 'bundle.js',
-        publicPath: '/js/app/',
-        chunkFilename: '[id].[hash].chunk.js'
-    },
-
-    module: {
-        rules: [
-            {
-                test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
-                loader: '@ngtools/webpack'
-            },
-            {
-                test: /\.ts$/,
-                use: [
-                    'awesome-typescript-loader',
-                    'angular2-template-loader',
-                    // 'angular-router-loader?aot=true'
-                ]
-            }
+  mode: 'production',
+  entry: {
+    'app': './assets/app/main.aot.ts'
+  },
+  output: {
+    path: path.resolve(__dirname + '/public/js/app'),
+    filename: 'bundle.js',
+    publicPath: '/js/app/',
+    chunkFilename: '[id].[hash].chunk.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
+        loader: '@ngtools/webpack'
+      },
+      {
+        test: /\.ts$/,
+        use: [
+          'awesome-typescript-loader',
+          'angular2-template-loader',
         ]
-    },
-
-    plugins: [
+      }
+    ]
+  },
+  plugins: [
     new ngw.AngularCompilerPlugin({
-      tsConfigPath: './tsconfig.aot.json',
+      tsConfigPath: './tsconfig.json',
       entryModule: './assets/app/app.module#AppModule'
     }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false
-        })
+  ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        uglifyOptions: {
+          compress: false,
+          ecma: 6,
+          mangle: true
+        },
+        sourceMap: false
+      })
     ]
+  }
 });

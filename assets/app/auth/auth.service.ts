@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Http, Headers, Response} from "@angular/http";
 import {User} from "./user.model";
-import 'rxjs/Rx';
 import {Observable} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
 import {ErrService} from "../err/err.service";
 
 @Injectable()
@@ -16,22 +16,26 @@ export class AuthService {
     const body = JSON.stringify(user);
     return this.http
                 .post('http://localhost:3000/api/users', body, {headers: this.headers})
-                .map((resp:Response) => resp.json())
-                .catch((err:Response) => {
-                  this.errService.handleErr(err.json());
-                  return Observable.throw(err.json());
-                });
+                .pipe(
+                  map((resp:Response) => resp.json()),
+                  catchError((err:Response) => {
+                    this.errService.handleErr(err.json());
+                    return Observable.throw(err.json());
+                  })
+                );
   }
 
   login(user:User) {
     const body = JSON.stringify(user);
     return this.http
                 .post('http://localhost:3000/api/users/login', body, {headers: this.headers})
-                .map((resp:Response) => resp.json())
-                .catch((err:Response) => {
-                  this.errService.handleErr(err.json());
-                  return Observable.throw(err.json());
-                });
+                .pipe(
+                  map((resp:Response) => resp.json()),
+                  catchError((err:Response) => {
+                    this.errService.handleErr(err.json());
+                    return Observable.throw(err.json());
+                  })
+                );
   }
 
   logout() {

@@ -1,8 +1,8 @@
 import {Http, Response, Headers} from '@angular/http';
 import {Message} from './msg.model';
 import {Injectable, EventEmitter} from '@angular/core';
-import 'rxjs/Rx';
 import {Observable} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
 import {ErrService} from '../err/err.service';
 
 @Injectable()
@@ -22,34 +22,40 @@ export class MsgService {
     if(token) token = '?token=' + token;
     else token = '';
 
-    return this.http.post('http://localhost:3000/api/msgs' + token, body, {headers:this.headers})
-               .map((resp:Response) => {
-                 const result = resp.json().obj;
-                 const newMsg = new Message(result.content, result.user.fname, result._id, result.user._id);
-                 this.messages.push(newMsg);
-                 return newMsg;
-               })
-               .catch((err:Response) => {
-                 this.errService.handleErr(err.json());
-                 return Observable.throw(err.json());
-               });
+    return this.http
+                .post('http://localhost:3000/api/msgs' + token, body, {headers:this.headers})
+                .pipe(
+                  map((resp:Response) => {
+                    const result = resp.json().obj;
+                    const newMsg = new Message(result.content, result.user.fname, result._id, result.user._id);
+                    this.messages.push(newMsg);
+                    return newMsg;
+                  }),
+                  catchError((err:Response) => {
+                    this.errService.handleErr(err.json());
+                    return Observable.throw(err.json());
+                  })
+                );
   }
 
   getMsg() {
-    return this.http.get('http://localhost:3000/api/msgs')
-               .map((resp:Response) => {
-                 const msgs = resp.json().obj;
-                 let transformedMsgs:Message[] = [];
-                 for(let m of msgs) {
-                   transformedMsgs.push(new Message(m.content, m.user.fname, m._id, m.user._id));
-                 }
-                 this.messages = transformedMsgs;
-                 return transformedMsgs;
-               })
-               .catch((err:Response) => {
-                this.errService.handleErr(err.json());
-                return Observable.throw(err.json());
-               });
+    return this.http
+                .get('http://localhost:3000/api/msgs')
+                .pipe(
+                  map((resp:Response) => {
+                    const msgs = resp.json().obj;
+                    let transformedMsgs:Message[] = [];
+                    for(let m of msgs) {
+                      transformedMsgs.push(new Message(m.content, m.user.fname, m._id, m.user._id));
+                    }
+                    this.messages = transformedMsgs;
+                    return transformedMsgs;
+                  }),
+                  catchError((err:Response) => {
+                    this.errService.handleErr(err.json());
+                    return Observable.throw(err.json());
+                  })
+                );
   }
 
   loadMsg(msg:Message) {
@@ -63,11 +69,14 @@ export class MsgService {
     if(token) token = '?token=' + token;
     else token = '';
 
-    return this.http.patch('http://localhost:3000/api/msgs/' + msg.messageId + token, body, {headers:this.headers})
-               .catch((err:Response) => {
-                 this.errService.handleErr(err.json());
-                 return Observable.throw(err.json());
-               });
+    return this.http
+                .patch('http://localhost:3000/api/msgs/' + msg.messageId + token, body, {headers:this.headers})
+                .pipe(
+                  catchError((err:Response) => {
+                    this.errService.handleErr(err.json());
+                    return Observable.throw(err.json());
+                  })
+                );
   }
 
   deleteMsg(msg:Message) {
@@ -76,10 +85,13 @@ export class MsgService {
     else token = '';
 
     this.messages.splice(this.messages.indexOf(msg), 1);
-    return this.http.delete('http://localhost:3000/api/msgs/' + msg.messageId + token)
-               .catch((err:Response) => {
-                 this.errService.handleErr(err.json());
-                 return Observable.throw(err.json());
-               });
+    return this.http
+                .delete('http://localhost:3000/api/msgs/' + msg.messageId + token)
+                .pipe(
+                  catchError((err:Response) => {
+                    this.errService.handleErr(err.json());
+                    return Observable.throw(err.json());
+                  })
+                );
   }
 }

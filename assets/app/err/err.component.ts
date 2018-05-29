@@ -3,9 +3,9 @@ import {Error} from './err.model';
 import {ErrService} from "./err.service";
 
 @Component({
-  selector: 'my-err',
-  templateUrl: './err.component.html',
-  styles: [`
+  selector:'my-err',
+  templateUrl:'./err.component.html',
+  styles:[`
     .backdrop {
       background-color: rgba(0,0,0,0.6);
       position: fixed;
@@ -24,12 +24,13 @@ export class ErrComponent implements OnInit {
   constructor(private errService:ErrService) {}
 
   ngOnInit() {
-    this.errService.errOccurred.subscribe(
-      (err:Error) => {
-        this.err = err;
-        this.display = 'block';
-      }
-    )
+    this.errService.errOccurred
+                    .subscribe(
+                      (err:Error) => {
+                        this.err = err;
+                        this.display = 'block';
+                      }
+                    );
   }
 
   onErrHandled() {
