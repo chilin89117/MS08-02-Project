@@ -21,8 +21,6 @@ var LoginComponent = /** @class */ (function () {
             .subscribe(function (data) {
             localStorage.setItem('token', data.obj.token);
             localStorage.setItem('userId', data.obj.userId);
-            console.log(data.status);
-            console.log(data.obj);
             _this.router.navigateByUrl('/');
         }, function (error) { return console.log(error); });
         this.myForm.reset();

@@ -19,7 +19,7 @@ var ErrComponent = /** @class */ (function () {
         { type: Component, args: [{
                     selector: 'my-err',
                     templateUrl: './err.component.html',
-                    styles: ["\n    .backdrop {\n      background-color: rgba(0,0,0,0.6);\n      position: fixed;\n      top: 0;\n      left: 0;\n      width: 70%;\n      height: 100vh;\n    }\n  "]
+                    styles: ["\n    .backdrop {\n      background-color: rgba(0,0,0,0.6);\n      position: fixed;\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 100vh;\n    }\n  "]
                 },] },
     ];
     /** @nocollapse */

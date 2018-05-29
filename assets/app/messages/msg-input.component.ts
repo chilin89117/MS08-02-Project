@@ -4,16 +4,19 @@ import {Message} from './msg.model';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'my-msg-input',
-  templateUrl: './msg-input.component.html',
+  selector:'my-msg-input',
+  templateUrl:'./msg-input.component.html',
 })
-
 export class MsgInputComponent implements OnInit {
-  msg: Message;
+  msg:Message;
 
-  constructor(private MsgService: MsgService) {}
+  constructor(private MsgService:MsgService) {}
 
-  onSubmit(form: NgForm) {
+  ngOnInit() {
+    this.MsgService.MsgEvtEmitter.subscribe((msg:Message) => this.msg = msg);
+  }
+  
+  onSubmit(form:NgForm) {
     if(this.msg) {
       this.msg.content = form.value.content;
       this.MsgService.updateMsg(this.msg)
@@ -33,12 +36,8 @@ export class MsgInputComponent implements OnInit {
     this.onClear(form);
   }
 
-  onClear(form: NgForm) {
+  onClear(form:NgForm) {
     this.msg = null;
     form.resetForm();
-  }
-
-  ngOnInit() {
-    this.MsgService.MsgEdit.subscribe((msg:Message) => this.msg = msg);
   }
 }

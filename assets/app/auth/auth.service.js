@@ -7,12 +7,13 @@ var AuthService = /** @class */ (function () {
     function AuthService(http, errService) {
         this.http = http;
         this.errService = errService;
+        this.headers = new Headers({ 'content-type': 'application/json' });
     }
     AuthService.prototype.register = function (user) {
         var _this = this;
         var body = JSON.stringify(user);
-        var headers = new Headers({ 'content-type': 'application/json' });
-        return this.http.post('http://localhost:3000/api/users', body, { headers: headers })
+        return this.http
+            .post('http://localhost:3000/api/users', body, { headers: this.headers })
             .map(function (resp) { return resp.json(); })
             .catch(function (err) {
             _this.errService.handleErr(err.json());
@@ -22,8 +23,8 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.login = function (user) {
         var _this = this;
         var body = JSON.stringify(user);
-        var headers = new Headers({ 'content-type': 'application/json' });
-        return this.http.post('http://localhost:3000/api/users/login', body, { headers: headers })
+        return this.http
+            .post('http://localhost:3000/api/users/login', body, { headers: this.headers })
             .map(function (resp) { return resp.json(); })
             .catch(function (err) {
             _this.errService.handleErr(err.json());

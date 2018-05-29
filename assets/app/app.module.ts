@@ -12,18 +12,8 @@ import {ErrService} from './err/err.service';
 import {MsgModule} from './messages/msg.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthComponent,
-    HeaderComponent,
-    ErrComponent
-  ],
-  imports: [
-    BrowserModule,
-    routes,
-    HttpModule,
-    MsgModule
-  ],
+  declarations: [AppComponent, AuthComponent, HeaderComponent, ErrComponent],
+  imports: [BrowserModule, routes, HttpModule, MsgModule],
   providers: [AuthService, ErrService],
   bootstrap: [AppComponent]
 })

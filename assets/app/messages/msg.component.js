@@ -5,12 +5,14 @@ var MsgComponent = /** @class */ (function () {
     function MsgComponent(MsgService) {
         this.MsgService = MsgService;
     }
-    MsgComponent.prototype.onLoadEdit = function () {
-        this.MsgService.loadEditMsg(this.msg);
+    MsgComponent.prototype.onLoadMsg = function () {
+        this.MsgService.loadMsg(this.msg);
     };
     MsgComponent.prototype.onDelete = function () {
-        this.MsgService.deleteMsg(this.msg)
-            .subscribe(function (result) { return console.log(result); });
+        if (confirm('Are you sure?')) {
+            this.MsgService.deleteMsg(this.msg)
+                .subscribe(function (result) { return console.log(result); });
+        }
     };
     MsgComponent.prototype.belongsToUser = function () {
         return localStorage.getItem('userId') === this.msg.userId;
@@ -18,7 +20,8 @@ var MsgComponent = /** @class */ (function () {
     MsgComponent.decorators = [
         { type: Component, args: [{
                     selector: 'my-msg',
-                    templateUrl: './msg.component.html'
+                    templateUrl: './msg.component.html',
+                    styles: ['.card {max-height: 200px;}']
                 },] },
     ];
     /** @nocollapse */

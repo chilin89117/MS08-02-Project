@@ -8,28 +8,30 @@ import {ErrService} from "../err/err.service";
 @Injectable()
 
 export class AuthService {
-  constructor(private http: Http, private errService: ErrService) {}
+  constructor(private http:Http, private errService:ErrService) {}
 
-  register(user: User) {
+  headers = new Headers({'content-type':'application/json'});
+
+  register(user:User) {
     const body = JSON.stringify(user);
-    const headers = new Headers({'content-type': 'application/json'});
-    return this.http.post('http://localhost:3000/api/users', body, {headers})
-                    .map((resp: Response) => resp.json())
-                    .catch((err: Response) => {
-                      this.errService.handleErr(err.json());
-                      return Observable.throw(err.json());
-                    });
+    return this.http
+                .post('http://localhost:3000/api/users', body, {headers: this.headers})
+                .map((resp:Response) => resp.json())
+                .catch((err:Response) => {
+                  this.errService.handleErr(err.json());
+                  return Observable.throw(err.json());
+                });
   }
 
-  login(user: User) {
+  login(user:User) {
     const body = JSON.stringify(user);
-    const headers = new Headers({'content-type': 'application/json'});
-    return this.http.post('http://localhost:3000/api/users/login', body, {headers})
-               .map((resp: Response) => resp.json())
-               .catch((err: Response) => {
-                this.errService.handleErr(err.json());
-                return Observable.throw(err.json());
-               });
+    return this.http
+                .post('http://localhost:3000/api/users/login', body, {headers: this.headers})
+                .map((resp:Response) => resp.json())
+                .catch((err:Response) => {
+                  this.errService.handleErr(err.json());
+                  return Observable.throw(err.json());
+                });
   }
 
   logout() {

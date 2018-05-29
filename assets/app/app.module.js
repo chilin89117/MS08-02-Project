@@ -14,18 +14,8 @@ var AppModule = /** @class */ (function () {
     }
     AppModule.decorators = [
         { type: NgModule, args: [{
-                    declarations: [
-                        AppComponent,
-                        AuthComponent,
-                        HeaderComponent,
-                        ErrComponent
-                    ],
-                    imports: [
-                        BrowserModule,
-                        routes,
-                        HttpModule,
-                        MsgModule
-                    ],
+                    declarations: [AppComponent, AuthComponent, HeaderComponent, ErrComponent],
+                    imports: [BrowserModule, routes, HttpModule, MsgModule],
                     providers: [AuthService, ErrService],
                     bootstrap: [AppComponent]
                 },] },

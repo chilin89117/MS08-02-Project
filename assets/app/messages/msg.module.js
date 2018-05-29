@@ -11,12 +11,7 @@ var MsgModule = /** @class */ (function () {
     }
     MsgModule.decorators = [
         { type: NgModule, args: [{
-                    declarations: [
-                        MsgInputComponent,
-                        MsgListComponent,
-                        MsgComponent,
-                        MsgsComponent
-                    ],
+                    declarations: [MsgInputComponent, MsgListComponent, MsgComponent, MsgsComponent],
                     imports: [CommonModule, FormsModule],
                     providers: [MsgService]
                 },] },

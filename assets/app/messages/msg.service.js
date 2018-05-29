@@ -9,18 +9,18 @@ var MsgService = /** @class */ (function () {
         this.http = http;
         this.errService = errService;
         this.messages = [];
-        this.MsgEdit = new EventEmitter();
+        this.MsgEvtEmitter = new EventEmitter();
+        this.headers = new Headers({ 'content-type': 'application/json' });
     }
     MsgService.prototype.addMsg = function (msg) {
         var _this = this;
         var body = JSON.stringify(msg);
-        var headers = new Headers({ 'content-type': 'application/json' });
         var token = localStorage.getItem('token');
         if (token)
             token = '?token=' + token;
         else
             token = '';
-        return this.http.post('http://localhost:3000/api/msgs' + token, body, { headers: headers })
+        return this.http.post('http://localhost:3000/api/msgs' + token, body, { headers: this.headers })
             .map(function (resp) {
             var result = resp.json().obj;
             var newMsg = new Message(result.content, result.user.fname, result._id, result.user._id);
@@ -50,20 +50,18 @@ var MsgService = /** @class */ (function () {
             return Observable.throw(err.json());
         });
     };
-    MsgService.prototype.loadEditMsg = function (msg) {
-        this.MsgEdit.emit(msg);
+    MsgService.prototype.loadMsg = function (msg) {
+        this.MsgEvtEmitter.emit(msg);
     };
     MsgService.prototype.updateMsg = function (msg) {
         var _this = this;
-        console.log(msg);
         var body = JSON.stringify(msg);
         var token = localStorage.getItem('token');
         if (token)
             token = '?token=' + token;
         else
             token = '';
-        var headers = new Headers({ 'content-type': 'application/json' });
-        return this.http.patch('http://localhost:3000/api/msgs/' + msg.messageId + token, body, { headers: headers })
+        return this.http.patch('http://localhost:3000/api/msgs/' + msg.messageId + token, body, { headers: this.headers })
             .catch(function (err) {
             _this.errService.handleErr(err.json());
             return Observable.throw(err.json());

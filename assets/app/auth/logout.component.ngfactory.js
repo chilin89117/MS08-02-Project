@@ -11,7 +11,7 @@ import * as i3 from "@angular/router";
 var styles_LogoutComponent = [];
 var RenderType_LogoutComponent = i0.ɵcrt({ encapsulation: 2, styles: styles_LogoutComponent, data: {} });
 export { RenderType_LogoutComponent as RenderType_LogoutComponent };
-export function View_LogoutComponent_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 4, "div", [], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n  "])), (_l()(), i0.ɵeld(2, 0, null, null, 1, "button", [["class", "btn btn-danger"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+export function View_LogoutComponent_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 4, "div", [["class", "bg-light p-5"]], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ["\n  "])), (_l()(), i0.ɵeld(2, 0, null, null, 1, "button", [["class", "btn btn-danger"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.onLogout() !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), i0.ɵted(-1, null, ["Logout"])), (_l()(), i0.ɵted(-1, null, ["\n"])), (_l()(), i0.ɵted(-1, null, ["\n"]))], null, null); }

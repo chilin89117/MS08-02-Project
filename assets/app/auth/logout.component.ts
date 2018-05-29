@@ -3,12 +3,12 @@ import {AuthService} from './auth.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'my-logout',
-  templateUrl: './logout.component.html'
+  selector:'my-logout',
+  templateUrl:'./logout.component.html'
 })
 
 export class LogoutComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService:AuthService, private router:Router) {}
   
   onLogout() {
     this.authService.logout();

@@ -5,6 +5,10 @@ var MsgInputComponent = /** @class */ (function () {
     function MsgInputComponent(MsgService) {
         this.MsgService = MsgService;
     }
+    MsgInputComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.MsgService.MsgEvtEmitter.subscribe(function (msg) { return _this.msg = msg; });
+    };
     MsgInputComponent.prototype.onSubmit = function (form) {
         if (this.msg) {
             this.msg.content = form.value.content;
@@ -22,10 +26,6 @@ var MsgInputComponent = /** @class */ (function () {
     MsgInputComponent.prototype.onClear = function (form) {
         this.msg = null;
         form.resetForm();
-    };
-    MsgInputComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.MsgService.MsgEdit.subscribe(function (msg) { return _this.msg = msg; });
     };
     MsgInputComponent.decorators = [
         { type: Component, args: [{

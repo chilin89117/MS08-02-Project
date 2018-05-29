@@ -11,21 +11,21 @@ import {ErrService} from "./err.service";
       position: fixed;
       top: 0;
       left: 0;
-      width: 70%;
+      width: 100%;
       height: 100vh;
     }
   `]
 })
 
 export class ErrComponent implements OnInit {
-  public err: Error;
+  public err:Error;
   public display = 'none';
 
-  constructor(private errService: ErrService) {}
+  constructor(private errService:ErrService) {}
 
   ngOnInit() {
     this.errService.errOccurred.subscribe(
-      (err: Error) => {
+      (err:Error) => {
         this.err = err;
         this.display = 'block';
       }

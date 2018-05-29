@@ -3,23 +3,26 @@ import {Message} from './msg.model';
 import {MsgService} from './msg.service';
 
 @Component({
-  selector: 'my-msg',
-  templateUrl: './msg.component.html'
+  selector:'my-msg',
+  templateUrl:'./msg.component.html',
+  styles: ['.card {max-height: 200px;}']
 })
 
 export class MsgComponent {
-  constructor(private MsgService: MsgService) {}
+  constructor(private MsgService:MsgService) {}
 
   // 'msg' comes from 'msg-list.component.*'
-  @Input() msg: Message;
+  @Input() msg:Message;
 
-  onLoadEdit() {
-    this.MsgService.loadEditMsg(this.msg);
+  onLoadMsg() {
+    this.MsgService.loadMsg(this.msg);
   }
 
   onDelete() {
-    this.MsgService.deleteMsg(this.msg)
-        .subscribe((result) => console.log(result));
+    if(confirm('Are you sure?')) {
+      this.MsgService.deleteMsg(this.msg)
+          .subscribe(result => console.log(result));
+    }
   }
 
   belongsToUser() {

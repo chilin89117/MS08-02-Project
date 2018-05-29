@@ -4,21 +4,21 @@ import {AuthService} from './auth.service';
 import {User} from './user.model';
 
 @Component({
-  selector: 'my-register',
-  templateUrl: './register.component.html'
+  selector:'my-register',
+  templateUrl:'./register.component.html'
 })
 
 export class RegisterComponent implements OnInit {
-  myForm: FormGroup;
+  myForm:FormGroup;
 
-  constructor(private authService: AuthService) {};
+  constructor(private authService:AuthService) {};
 
   ngOnInit() {
     this.myForm = new FormGroup({
-      fname: new FormControl(null, Validators.required),
-      lname: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      pwd: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      fname:new FormControl(null, Validators.required),
+      lname:new FormControl(null, Validators.required),
+      email:new FormControl(null, [Validators.required, Validators.email]),
+      pwd:new FormControl(null, [Validators.required, Validators.minLength(6)])
     });
   }
 
@@ -31,13 +31,12 @@ export class RegisterComponent implements OnInit {
     );
     this.authService.register(user)
         .subscribe(
-          (data) => {
+          data => {
             console.log(data.status);
             console.log(data.obj);
           },
-          (err) => console.log(err)
+          err => console.log(err)
         );
-        
     this.myForm.reset();
   }
 }

@@ -8,12 +8,7 @@ import {FormsModule} from "@angular/forms";
 import {MsgService} from "./msg.service";
 
 @NgModule({
-  declarations: [
-    MsgInputComponent,
-    MsgListComponent,
-    MsgComponent,
-    MsgsComponent
-  ],
+  declarations: [MsgInputComponent, MsgListComponent, MsgComponent, MsgsComponent],
   imports: [CommonModule, FormsModule],
   providers: [MsgService]
 })
