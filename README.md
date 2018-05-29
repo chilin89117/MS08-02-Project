@@ -1,24 +1,26 @@
 # MS08-02-Project
 
-### `npm run build:prod`
-### `npm start`
+![a](../assets/a.png?raw=true)
 
+![b](../assets/b.png?raw=true)
 
+![c](../assets/c.png?raw=true)
 
-* `app.component.ts`
-  * `header.component.ts`
-  * `<router-outlet>`
-    * `msgs.component.ts`
-      * `msg-input.component.ts`
-      * `msg-list.component.ts`
-        * `msg.component.ts`
-        * `msg.component.ts`
-        * ...
-    * `auth.component.ts`
-      * `<router-outlet>`
-        * `register.component.ts`
-        * `login.component.ts`
-        * `logout.component.ts`
-  * `err.component.ts`
-
-    
+* ### `$ npm run build:prod`
+* ### `$ npm start`
+* ### Components
+  * app
+    * header
+    * `<router-outlet>`
+      * msgs
+        * msg-input
+        * msg-list
+          * msg
+          * msg
+          * ...
+      * auth
+        * `<router-outlet>`
+          * register
+          * login
+          * logout
+    * err
